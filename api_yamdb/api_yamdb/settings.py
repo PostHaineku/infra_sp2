@@ -15,7 +15,10 @@ EMAIL_USE_SSL = False
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY_VALUE')
+SECRET_KEY = os.environ.get('SECRET_KEY_VALUE', '*')
+# эээ, вот так? os.getenv с просто секрет кеем из енв не работал
+# была та же история, что с постгресом, который приходится хардкодить 
+# в DATABASES
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
