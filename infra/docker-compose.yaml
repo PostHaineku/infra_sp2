@@ -4,8 +4,7 @@ services:
   db:
     image: postgres:13.0-alpine
     volumes:
-      - /var/lib/postgresql/db_volume/
-    # я правильно понял?
+      - db_value:/var/lib/postgresql/db/
     env_file:
       - ./.env
   web:
@@ -35,6 +34,7 @@ services:
     depends_on:
       - web
 
-volumes: 
+volumes:
+  db_value:
   static_value:
   media_value:
